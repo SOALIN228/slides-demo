@@ -21,7 +21,7 @@ let timer = setInterval(function () {
 }, 2000)
 
 // 鼠标悬停暂停，移除鼠标继续
-$('.container').on('mouseenter', function () {
+$('.images').on('mouseenter', function () {
   window.clearInterval(timer)
 }).on('mouseleave', function () {
   timer = setInterval(function () {
@@ -40,7 +40,6 @@ function bindEvents () {
 
 // 切换图片
 function goToSlide (index) {
-  console.log(index)
   if (index > $buttons.length - 1) {
     index = 0
   } else if (index < 0) {
