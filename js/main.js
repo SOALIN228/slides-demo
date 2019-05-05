@@ -8,37 +8,27 @@ $slides.css({ transform: 'translateX(-400px)' })
 bindEvents()
 
 function bindEvents () {
-  $buttons.eq(0).on('click', function () {
-    if (current === 2) {
+  $('#buttonWrapper').on('click', 'button', function (e) {
+    let $button = $(e.currentTarget)
+    let index = $button.index()
+    if (current === $buttons.length - 1 && index === 0) {
       // 从最后一张到第一张
-      $slides.css({ transform: 'translateX(-1600px)' })
+      $slides.css({ transform: `translateX(${-($buttons.length + 1) * 400}px)` })
       .one('transitionend', function () {
         $slides.hide().offset()
-        $slides.css({ transform: 'translateX(-400px)' }).show()
+        $slides.css({ transform: `translateX(${-(index + 1) * 400}px)` }).show()
       })
-    } else {
-      $slides.css({ transform: 'translateX(-400px)' })
-    }
-    current = 0
-  })
-
-  $buttons.eq(1).on('click', function () {
-    $slides.css({ transform: 'translateX(-800px)' })
-    current = 1
-  })
-
-  $buttons.eq(2).on('click', function () {
-    if (current === 0) {
+    } else if (current === 0 && index === $buttons.length - 1) {
       // 从第一张到最后一张
-      $slides.css({ transform: 'translateX(0px)' })
+      $slides.css({ transform: `translateX(0px)` })
       .one('transitionend', function () {
         $slides.hide().offset()
-        $slides.css({ transform: 'translateX(-1200px)' }).show()
+        $slides.css({ transform: `translateX(${-(index + 1) * 400}px)` }).show()
       })
     } else {
-      $slides.css({ transform: 'translateX(-1200px)' })
+      $slides.css({ transform: `translateX(${-(index + 1) * 400}px)` })
     }
-    current = 2
+    current = index
   })
 }
 
