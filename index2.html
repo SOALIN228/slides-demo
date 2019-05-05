@@ -3,45 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>普通轮播</title>
-  <style>
-
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    .window {
-      width: 400px;
-      height: 300px;
-      margin: 20px auto;
-      overflow: hidden;
-    }
-
-    .images {
-      display: flex;
-      align-items: flex-start;
-      transition: all 0.5s;
-    }
-
-    .images > img {
-      vertical-align: top;
-    }
-
-    #buttons {
-      display: block;
-      width: 400px;
-      margin: 20px auto;
-      text-align: center;
-    }
-
-    .red {
-      color: red;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/style2.css">
 </head>
 <body>
   <div class="window">
@@ -59,49 +21,6 @@
     <span>第4张</span>
   </span>
   <script src="js/jquery-3.2.1.min.js"></script>
-  <script>
-  var allButtons = $('#buttons > span')
-
-  for (let i = 0; i < allButtons.length; i++) {
-    $(allButtons[i]).on('click', function (x) {
-      var index = $(x.currentTarget).index()
-      var p = index * -400
-      $('#images').css({
-        transform: 'translate(' + p + 'px)'
-      })
-      n = index
-      activeButton(allButtons.eq(n))
-    })
-  }
-
-
-  var n = 0
-  var size = allButtons.length
-  allButtons.eq(n % size).trigger('click')
-
-
-  var timerId = setTimer()
-
-  function setTimer () {
-    return setInterval(() => {
-      n += 1
-      allButtons.eq(n % size).trigger('click')
-    }, 3000)
-  }
-
-  function activeButton ($button) {
-    $button
-    .addClass('red')
-    .siblings('.red').removeClass('red')
-  }
-
-  $('.window').on('mouseenter', function () {
-    window.clearInterval(timerId)
-  })
-
-  $('.window').on('mouseleave', function () {
-    timerId = setTimer()
-  })
-  </script>
+  <script src="js/main2.js"></script>
 </body>
 </html>
