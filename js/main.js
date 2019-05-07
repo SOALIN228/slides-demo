@@ -4,7 +4,6 @@ let $images = $slides.children('img')
 let current = 0
 
 makeFakeSlides()
-$slides.css({ transform: 'translateX(-400px)' })
 bindEvents()
 
 // 上一张和下一张
