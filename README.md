@@ -28,4 +28,4 @@
 
 
 ## index2.html为普通轮播
-
+https://soalin228.github.io/slides-demo/index2.html
