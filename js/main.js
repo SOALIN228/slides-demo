@@ -20,7 +20,7 @@ let timer = setInterval(function () {
 }, 2000)
 
 // 鼠标悬停暂停，移除鼠标继续
-$('.images').on('mouseenter', function () {
+$('.window').on('mouseenter', function () {
   window.clearInterval(timer)
 }).on('mouseleave', function () {
   timer = setInterval(function () {
